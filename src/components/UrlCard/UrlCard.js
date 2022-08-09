@@ -1,4 +1,5 @@
 import React from "react";
+import './UrlCard.css'
 
 const UrlCard = ({url}) => {
   return (

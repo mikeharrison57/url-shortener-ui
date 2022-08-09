@@ -1,7 +1,6 @@
-.url {
-  border: 1px solid black;
-  display: inline-block;
-  margin: 10px;
-  padding: 5px;
-  background-color: #FFF;
+.url-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px;
 }

@@ -32,5 +32,4 @@ describe('URL Shortener, main page', () => {
     cy.get('.url-card').last().find('a').should('exist').should('be.visible')
     cy.get('.url-card').last().find('h3').should('have.text', 'Fruit')
   })
-
 })
