@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getUrls } from '../../apiCalls';
+import { getUrls, postUrls } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -22,6 +22,10 @@ export class App extends Component {
         console.log(err)
         this.setState({error: 'Techical Difficulties'})
       })
+  }
+
+  addUrl = newUrl => {
+    this.setState({urls: [...this.state.urls, newUrl]})
   }
 
   render() {
