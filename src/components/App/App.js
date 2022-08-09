@@ -8,18 +8,26 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      urls: []
+      urls: [],
+      error: ''
     }
   }
 
   componentDidMount() {
-    
-
+    getUrls()
+      .then((data) => {
+        this.setState({urls: data.urls})
+      })
+      .catch((err) => {
+        console.log(err)
+        this.setState({error: 'Techical Difficulties'})
+      })
   }
 
   render() {
     return (
       <main className="App">
+        {console.log(this.state.urls)}
         <header>
           <h1>URL Shortener</h1>
           <UrlForm />
