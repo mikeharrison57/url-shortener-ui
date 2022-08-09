@@ -20,7 +20,12 @@ describe('URL Shortener, main page', () => {
     cy.get('button').should('have.length', 1).should('have.text', 'Shorten Please!')
   })
 
-  
+  it('Should allow the user to input information into the form, and the values of the inputs should be the user input', () => {
+    cy.get('input').first().type('City').should('have.value', 'City')
+    cy.get('input').last().type('https://source.unsplash.com/random/?city,night').should('have.value', 'https://source.unsplash.com/random/?city,night')
+    
+  })
+
 })
 
 // When a user fills out the form, the information is reflected in the input fields
