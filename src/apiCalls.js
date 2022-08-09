@@ -21,7 +21,7 @@ const postUrls = newUrl => {
     if (!resp.ok) {
       throw new Error(resp.statusText)
     }
-    // console.log(resp)
+    console.log(resp)
     return resp
   })
 }
