@@ -41,7 +41,7 @@ export class App extends Component {
   render() {
     return (
       <>
-        {this.state.error ? <h1 style={{textAlign: 'center'}}>{this.state.error}</h1> : 
+        {this.state.error ? <h1 className='error-message' style={{textAlign: 'center'}}>{this.state.error}</h1> : 
           <main className="App">
             <header>
               <h1>URL Shortener</h1>
