@@ -23,6 +23,8 @@ class UrlForm extends Component {
     if (this.state.title && this.state.urlToShorten) {
       this.props.addUrl(newUrl)
       this.clearInputs();
+    } else {
+      alert('Please fill out both fields')
     }
   }
 
