@@ -22,7 +22,7 @@ export class App extends Component {
       })
       .catch((err) => {
         console.log(err)
-        this.setState({error: 'Techical Difficulties'})
+        this.setState({error: 'Sorry, were having some Techical Difficulties right now. Please come visit us later!'})
       })
   }
 
@@ -31,19 +31,26 @@ export class App extends Component {
     .then((data) => {
       console.log(data)
       this.setState({urls: [...this.state.urls, data]})
-      })
+    })
+    .catch((err) => {
+      console.log(err)
+      this.setState({error: 'Sorry, were having some Techical Difficulties right now. Please come visit us later!'})
+    })
   }
 
   render() {
     return (
-      <main className="App">
-        {console.log(this.state.urls)}
-        <header>
-          <h1>URL Shortener</h1>
-          <UrlForm addUrl={this.addUrl} />
-        </header>
-        <UrlContainer urls={this.state.urls}/>
-      </main>
+      <>
+        {this.state.error ? <h1 style={{textAlign: 'center'}}>{this.state.error}</h1> : 
+          <main className="App">
+            <header>
+              <h1>URL Shortener</h1>
+              <UrlForm addUrl={this.addUrl} />
+            </header>
+            <UrlContainer urls={this.state.urls}/>
+          </main>
+        }
+      </>
     );
   }
 }
