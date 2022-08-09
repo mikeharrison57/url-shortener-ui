@@ -22,7 +22,7 @@ const postUrls = newUrl => {
       throw new Error(resp.statusText)
     }
     console.log(resp)
-    return resp
+    return resp.json()
   })
 }
 
