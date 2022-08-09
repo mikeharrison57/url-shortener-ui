@@ -12,9 +12,16 @@ describe('URL Shortener, main page', () => {
       .should('have.attr', 'href', 'http://localhost:3001/useshorturl/3')
   })
 
-  it('Should')
+  it('Should have a form that the user can see, and form should have two inputs and a button', () => {
+    cy.get('form').should('be.visible')
+      .find('input').should('have.length', 2).should('have.attr', 'type', 'text')
+    cy.get('input').first().should('have.attr', 'name', 'title')
+    cy.get('input').last().should('have.attr', 'name', 'urlToShorten')
+    cy.get('button').should('have.length', 1).should('have.text', 'Shorten Please!')
+  })
+
+  
 })
 
-// When a user visits the page, they can view the Form with the proper inputs
 // When a user fills out the form, the information is reflected in the input fields
 // When a user fills out and submits the form, the new shortened URL is rendered
