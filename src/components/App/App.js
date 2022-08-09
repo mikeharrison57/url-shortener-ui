@@ -27,7 +27,7 @@ export class App extends Component {
   render() {
     return (
       <main className="App">
-        {console.log(this.state.urls)}
+        {/* {console.log(this.state.urls)} */}
         <header>
           <h1>URL Shortener</h1>
           <UrlForm />
