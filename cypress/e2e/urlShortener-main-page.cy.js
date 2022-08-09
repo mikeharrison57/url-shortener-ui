@@ -60,4 +60,15 @@ describe('URL Shortener, main page', () => {
     cy.visit('http://localhost:3000/')
     cy.get('.error-message').should('have.text', 'Sorry, were having some Techical Difficulties right now. Please come visit us later!')
   })
+  
+  it('Should display an error message if and internal server error occurs' , () => {
+    cy.intercept('GET', 'http://localhost:3001/api/v1/urls', {
+      statusCode: 500,
+      body: {
+        error: 'Cypress forced 500'
+      }
+    })
+    cy.visit('http://localhost:3000/')
+    cy.get('.error-message').should('have.text', 'Sorry, were having some Techical Difficulties right now. Please come visit us later!')
+  })
 })
