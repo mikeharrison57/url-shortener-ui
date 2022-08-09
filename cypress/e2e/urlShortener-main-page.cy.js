@@ -23,10 +23,14 @@ describe('URL Shortener, main page', () => {
   it('Should allow the user to input information into the form, and the values of the inputs should be the user input', () => {
     cy.get('input').first().type('City').should('have.value', 'City')
     cy.get('input').last().type('https://source.unsplash.com/random/?city,night').should('have.value', 'https://source.unsplash.com/random/?city,night')
-    
+  })
+
+  it('Should submit user input, and user input should be reflected in new URL card on the DOM', () => {
+    cy.get('input').first().type('Fruit')
+    cy.get('input').last().type('https://source.unsplash.com/random/900×700/?fruit')
+    cy.get('button').click()
+    cy.get('.url-card').last().find('a').should('exist').should('be.visible')
+    cy.get('.url-card').last().find('h3').should('have.text', 'Fruit')
   })
 
 })
-
-// When a user fills out the form, the information is reflected in the input fields
-// When a user fills out and submits the form, the new shortened URL is rendered
