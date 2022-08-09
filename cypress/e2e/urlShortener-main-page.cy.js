@@ -32,4 +32,14 @@ describe('URL Shortener, main page', () => {
     cy.get('.url-card').last().find('a').should('exist').should('be.visible')
     cy.get('.url-card').last().find('h3').should('have.text', 'Fruit')
   })
+
+  it.only('Should not submit form unless user fills out both inputs' , () => {
+    cy.get('input').should('have.attr', 'required')
+    cy.get('input').first().type('Dog')
+    cy.get('button').click()
+    cy.get('input').then((input) => {
+      expect(input[1].validationMessage).to.eq('Please fill out this field.')
+    })
+    cy.get('.url-card').should('not.have.length', 4)
+  })
 })
