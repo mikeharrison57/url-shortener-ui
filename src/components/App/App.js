@@ -4,8 +4,6 @@ import { getUrls, postUrls } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
-// https://source.unsplash.com/user/wsanter
-
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -29,7 +27,6 @@ export class App extends Component {
   addUrl = newUrl => {
     postUrls(newUrl)
     .then((data) => {
-      console.log(data)
       this.setState({urls: [...this.state.urls, data]})
     })
     .catch((err) => {
